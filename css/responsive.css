@@ -1,0 +1,33 @@
+
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .kontak-box {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 500px) {
+    .navbar-nav {
+        margin: 0;
+    }
+    .container-fluid {
+        /* background-color: white; */
+    background: linear-gradient(45deg, #d33059, #fa5b7d);
+
+    }
+
+    .carousel {
+        margin: 0;
+    }
+    .carousel-item {
+        height: 400px;
+    }
+    
+    .lokasi-konten a.lokasi-link p {
+        font-size: 12px;
+    }
+
+}
