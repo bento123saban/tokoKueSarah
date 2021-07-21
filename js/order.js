@@ -94,3 +94,139 @@ function tampilData(array) {
 }
 
 document.querySelector('#produk').innerHTML = tampilData(data)
+
+
+
+function daftarOrder() // menyusun daftar item yang telah diorder
+{
+    let daftar = '' // menampung hasil dari daftar order
+    if (orderArray.length == 0 ) // jika orderArray kosong, panjang = 0, maka
+    { 
+        daftar = 
+        `
+            <p class="no-item">Belum ada item yang diorder</p> 
+        ` // daftar order kosong
+    }
+    else// tapi, jika daftar order tidak kosong, maka
+    { 
+        orderArray.forEach(function(item){
+            let html = `
+                <div class="order-item" data-id="${item.ID}">
+                    <li>${item.nama}</li>
+                    <input type="number" class="jumlah-item order-input" value="${item.jumlah}" required>
+                    <i class="fas fa-trash"></i>
+                </div>
+            `
+            daftar += html
+        })
+    }
+    return document.querySelector('.order-pilih').innerHTML = daftar // mengembalikan hasil dari daftar order menjadi HTML dari kelas order-pilih
+}
+
+function hitungTotal() // menghitung total bayar
+{
+    let total = 0 // varibal menampung hasil hitung total bayar
+    orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
+        total += parseFloat(item.harga) * parseFloat(item.jumlah) // mengalikan harga dari item 
+    });
+    document.querySelector('.total-harga').innerHTML = 'Total Harga : Rp. ' + total // mengembalikan/menampilkan hasil hitung pada element total harga
+}
+
+// mendapatkan data dari item dalam array, dengan parameter id sebagai id yang akan dicari dan parameter array sebagai array tempat mengambil data
+
+
+function tambahOrder(element) {
+    let ID = element.getAttribute('data-id') //mengambil ID item
+    console.log(ID)
+    console.log(orderArray)
+    let parameter = 0 //parameter ; jika 0 beluk ditambahkan, jika 1 sudah ditambahkan
+    orderArray.forEach( index => { //perulangan untuk mengecek item sudah ditambahkan atau belum
+        if (index.ID == ID) {
+            console.log(index.ID)
+            parameter = 1 // jika sudah ditambahakan parameter menjadi (1)
+            return ''// hentikan proses
+        }
+    }) //jika item belum ditambahkan (param = 0), ambil data item dara variabel simpan data (buketData atau ritelData)
+    if(parameter == 0) //jika item belum ditambahkan (param = 0), ambil data item dara variabel simpan data (buketData atau ritelData)
+    {
+        const i = data.findIndex( item => item.ID == ID)
+
+        let  item = data[i] // variabel Objek untuk menampung data dari item yang ditambhakan
+        item.jumlah = 1;
+        orderArray.push(item)
+    }
+}
+
+function hapusItem(element){
+    const ID = element.parentElement.getAttribute('data-id')
+    let i = orderArray.findIndex( item => item.ID == ID)
+    orderArray.splice(i, 1)
+}
+
+
+function gantiNilai(element){
+    console.log(element)
+    const ID = element.parentElement.getAttribute('data-id')
+    console.log(ID)
+    let i = orderArray.findIndex(index => index.ID == ID)
+    let value = parseFloat(element.value)
+    if (value > 0) {
+        orderArray[i].jumlah = value
+    } else {
+        element.value = ''
+        orderArray[i].jumlah = 0
+    }
+    console.info(orderArray[i].jumlah)
+    hitungTotal()
+}
+
+function jikaKosong(element) {
+    if (element.value == '') {
+        element.style.borderColor = 'red'
+    } else {
+        element.style.borderColor = ''
+    }
+}
+
+function cekIsi() {
+    let parameter = 0
+    document.querySelectorAll('.order-input').forEach(function (item) {
+        if (item.value == '') {
+            parameter = 1
+            item.style.borderColor = 'red'
+        }
+    })
+    if (orderArray.length == 0) {
+        parameter = 1
+    }
+    if(parameter == 0){
+        let konfirmasi = confirm('Anda akan dialihkan ke WhatsApp. Segera kirim text pesan yang tertera untuk mengkonfirmasi orderan anda !')
+        if (konfirmasi) {
+            order()
+        }
+    }
+}
+
+function order(){
+    const nama = document.querySelector('#order-nama').value
+    const telp = document.querySelector('#order-telpon').value
+    const deskripsi = document.querySelector('#order-deskripsi').value
+    const alamat = document.querySelector('#alamat').value
+    
+    let orderan = ''
+    orderArray.forEach(function(item){
+        orderan += `${item.nama} (${item.jumlah} Porsi).\n`
+    })
+    let total = 0 // varibal menampung hasil hitung total bayar
+    orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
+        total += parseFloat(item.harga) * parseFloat(item.jumlah) // mengalikan harga dari item 
+    });
+
+    let dataWA = `Order Baru !! - ${new Date()}\n\n${nama} - ${telp}\n\n${orderan}\nTotal : Rp. ${total}\n\nDeskripsi : ${deskripsi}\n\nAlamat :\n${alamat}
+    `
+    const encode = encodeURI(dataWA)
+    const linkWA = `https://wa.me/+6281354741823?text=${encode}`
+    console.info(linkWA)
+    console.info(dataWA)
+    location.href = linkWA
+}
