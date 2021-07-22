@@ -1,227 +1,268 @@
-const data = [
-    {
-        ID : 1,
-        nama : "Menu Pertama",
-        img : "images (2) (1).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 10000
-    },
-    {
-        ID : 2,
-        nama : "Menu Kedua",
-        img : "images (2) (2).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 20000
-    },
-    {
-        ID : 3,
-        nama : "Menu Ketiga",
-        img : "images (2) (3).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 30000
-    },
-    {
-        ID : 4,
-        nama : "Menu Keempat",
-        img : "images (2) (4).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 40000
-    },
-    {
-        ID : 5,
-        nama : "Menu Kelima",
-        img : "images (2) (5).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 50000
-    },
-    {
-        ID : 6,
-        nama : "Menu Keenam",
-        img : "images (2) (11).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 60000
-    },
-    {
-        ID : 7,
-        nama : "Menu Ketujuh",
-        img : "images (2) (7).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 70000
-    },
-    {
-        ID : 8,
-        nama : "Menu Kedelapan",
-        img : "images (2) (8).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 80000
-    },
-    {
-        ID : 9,
-        nama : "Menu Kesembilan",
-        img : "images (2) (9).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 90000
-    },
-    {
-        ID : 10,
-        nama : "Menu Kesepuluh",
-        img : "images (2) (10).jpeg",
-        deskripsi : "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur maxime assumenda et eveniet dolorem harum, asperiores optio nam debitis odio libero quam nostrum possimus. Velit deleniti cumque voluptate quod eum?",
-        harga : 100000
-    }
-]
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-function tampilData(array) {
-    let html = ''
-    array.forEach(menu => {
-        html += `
-        <div class="card" data-nama="${menu.nama}">
-            <div class="box1">
-                <img class="img-full" src="asset/menu/${menu.img}" alt="">
-                <span>Rp. ${menu.harga}</span>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="fontawesome/css/all.css">
+	<script src="https://kit.fontawesome.com/b9a9bf6e53.js" crossorigin="anonymous"></script>
+
+
+    <title>Toko Kue ----</title>
+</head>
+<body>
+    <div class="animasi" id="animasi">
+        <!-- vanta bird js -->
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Toko Kue Sarah</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Promo</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Kontak</a>
+                </li>
+                </ul>
             </div>
-            <div class="box2">
-                <h4>${menu.nama}</h4>
-                <div class="box3">
-                    <p>${menu.deskripsi}</p>
-                    <span class="tambah" data-id="${menu.ID}">ORDER</span>
+        </div>
+    </nav>
+    
+    <header id="header">
+        <img src="" alt="">LOGO
+        <h1>Toko Kue Sarah</h1>
+        <p class="header-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati doloribus dolores sed est, architecto molestias?
+        </p>
+        <a href="">ORDER</a>
+    </header>
+
+    
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="asset/promo/Promo1.jpeg" class="img-full" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5>Promo 1</h5>
+                    <p>Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="asset/promo/Promo2.jpeg" class="img-full" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5>Promo 2</h5>
+                    <p>Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="asset/promo/Promo3.jpeg" class="img-full" alt="...">
+                <div class="carousel-caption d-md-block">
+                    <h5>Promo 3</h5>  
+                    <p>Some representative placeholder content for the third slide.</p>
                 </div>
             </div>
         </div>
-        `
-    })
-    return html
-}
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
 
-document.querySelector('#produk').innerHTML = tampilData(data)
+    <!-- <div class="block">
 
+    </div> -->
 
+    <div class="search">
+        <input type="text"><i class="fas fa-search"></i>
+    </div>
 
-function daftarOrder() // menyusun daftar item yang telah diorder
-{
-    let daftar = '' // menampung hasil dari daftar order
-    if (orderArray.length == 0 ) // jika orderArray kosong, panjang = 0, maka
-    { 
-        daftar = 
-        `
-            <p class="no-item">Belum ada item yang diorder</p> 
-        ` // daftar order kosong
-    }
-    else// tapi, jika daftar order tidak kosong, maka
-    { 
-        orderArray.forEach(function(item){
-            let html = `
-                <div class="order-item" data-id="${item.ID}">
-                    <li>${item.nama}</li>
-                    <input type="number" class="jumlah-item order-input" value="${item.jumlah}" required>
-                    <i class="fas fa-trash"></i>
+    <div class="produk" id="produk">
+        <!-- <div class="card" data-nama="">
+            <div class="box1">
+                <img class="img-full" src="asset/menu/Food1.jpg" alt="">
+                <span>Rp. 50000</span>
+            </div>
+            <div class="box2">
+                <h4>Lorem, ipsum.</h4>
+                <div class="box3">
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium, veritatis voluptatibus. Laudantium deleniti suscipit molestiae nobis id ratione laboriosam ea?</p>
+                    <span class="tambah" data-id="">ORDER</span>
                 </div>
-            `
-            daftar += html
-        })
-    }
-    return document.querySelector('.order-pilih').innerHTML = daftar // mengembalikan hasil dari daftar order menjadi HTML dari kelas order-pilih
-}
+            </div>
+        </div> -->
+    </div>
+    <div class="order">
+        <h1>Order</h1>
+        <p class="order-ket">Anda juga dapat memesan menu selain yang kami miliki. Silahkan masukkan permintaan menu anda pada kolom deskripsi.</p>
+        <div class="order-container" >
+            <label for="order-nama">Nama Lengkap :</label>
+            <input type="text" name="nama" id="order-nama" class="order-input" placeholder="Masukkan Nama Anda" required>
 
-function hitungTotal() // menghitung total bayar
-{
-    console.log('hitung')
-    let total = 0 // varibal menampung hasil hitung total bayar
-    orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
-        total += parseFloat(item.harga) * parseFloat(item.jumlah) // mengalikan harga dari item 
-    })
-    document.querySelector('.total-harga').innerHTML = 'Total Harga : Rp. ' + total // mengembalikan/menampilkan hasil hitung pada element total harga
-}
+            <label for="order-nama">No Telpon :</label>
+            <input type="number" name="telp" id="order-telpon" class="order-input" placeholder="Masukkan Nomor Telepon Anda" required>
 
-// mendapatkan data dari item dalam array, dengan parameter id sebagai id yang akan dicari dan parameter array sebagai array tempat mengambil data
+            <p class="daftar-order">Daftar Order :</p>
+            <ol class="order-pilih">
+                
+            </ol>
+            <span class="total-harga"></span>
 
+            <label for="order-deskripsi" class="label">Deskripsi order:</label>
+            <textarea name="desc" id="order-deskripsi" class="order-input" placeholder="Masukkan Deskripsi orderan Anda, atau jika anda memiliki permintaan tertentu, silahkan masukan disini" required></textarea>
 
-function tambahOrder(element) {
-    let ID = element.getAttribute('data-id') //mengambil ID item
-    let parameter = 0 //parameter ; jika 0 beluk ditambahkan, jika 1 sudah ditambahkan
-    orderArray.forEach( index => { //perulangan untuk mengecek item sudah ditambahkan atau belum
-        if (index.ID == ID) {
-            parameter = 1 // jika sudah ditambahakan parameter menjadi (1)
-            return ''// hentikan proses
-        }
-    }) //jika item belum ditambahkan (param = 0), ambil data item dara variabel simpan data (buketData atau ritelData)
-    if(parameter == 0) //jika item belum ditambahkan (param = 0), ambil data item dara variabel simpan data (buketData atau ritelData)
-    {
-        const i = data.findIndex( item => item.ID == ID)
+            <label for="alamat" class="label">Alamat:</label>
+            <textarea name="alamat" id="alamat" class="order-input" placeholder="Masukan Alamat Lengkap Anda untuk pengantaran katering." required></textarea>
 
-        let  item = data[i] // variabel Objek untuk menampung data dari item yang ditambhakan
-        item.jumlah = 1;
-        orderArray.push(item)
-    }
-}
-
-function hapusItem(element){
-    const ID = element.parentElement.getAttribute('data-id')
-    let i = orderArray.findIndex( item => item.ID == ID)
-    orderArray.splice(i, 1)
-}
+            <p class="cek-input">Tambahkan item dan masukan semua data</p>
+            <button type="submit" class="order-button" id="order-button">O R D E R</button>
+        </div>
+    </div>
 
 
-function gantiNilai(element){
-    const ID = element.parentElement.getAttribute('data-id')
-    let i = orderArray.findIndex(index => index.ID == ID)
-    let value = parseFloat(element.value)
-    if (value > 0) {
-        orderArray[i].jumlah = value
-    } else {
-        element.value = ''
-        orderArray[i].jumlah = 0
-    }
-    hitungTotal()
-}
 
-function jikaKosong(element) {
-    if (element.value == '') {
-        element.style.borderColor = '#123'
-    } else {
-        element.style.borderColor = ''
-    }
-}
+    <div class="kontak">
+		<h3>Hubungi Kami di :</h3>
+		<div class="kontak-box">
+			<div class="kontak-konten">
+				<a href="https://wa.me/+62823-9907-8306?text=Hallo admin Toko Kue Sarah.\n" class="kontak-link">
+					<img src="asset/png/wa.svg" alt="">
+					<p class="wa">082399078306</p>
+				</a>
+			</div>
+			<div class="kontak-konten">
+				<a href="" class="kontak-link">
+					<img src="asset/png/ig.svg" alt="">
+					<p class="ig">IG</p>
+				</a>
+			</div>
+			<div class="kontak-konten">
+				<a href="tel:082399078306" class="kontak-link">
+					<img src="asset/png/telp.svg" alt="">
+					<p class="telp">082399078306</p>
+				</a>
+			</div>
+		</div>
+		<div class="lokasi-konten">
+			<a href="" class="lokasi-link">
+				<i class="fas fa-map-marker-alt"></i>
+				<p>Alamat</p>
+			</a>
+		</div>
 
-function cekIsi() {
-    let parameter = 0
-    document.querySelectorAll('.order-input').forEach(function (item) {
-        if (item.value == '') {
-            parameter = 1
-            item.style.borderColor = '#123'
-        }
-    })
-    if (orderArray.length == 0) {
-        parameter = 1
-    }
-    if(parameter == 0){
-        let konfirmasi = confirm('Anda akan dialihkan ke WhatsApp. Segera kirim text pesan yang tertera untuk mengkonfirmasi orderan anda !')
-        if (konfirmasi) {
-            order()
-        }
-    }
-}
+		<div class="footer-konten">
+			<div class="box">
+				<h4>Tentang Kami</h4>
+				<p>Toko Kue Sarah. ............... </p>
+			</div>
+			<div class="box">
+				<h4>Jam Layanan :</h4>
+				<p>Setiap Hari, 06.00 - 22.00 WIT <br>Kecuali Minggu (Libur)</p>
+			</div>
+		</div>
+	</div>
 
-function order(){
-    const nama = document.querySelector('#order-nama').value
-    const telp = document.querySelector('#order-telpon').value
-    const deskripsi = document.querySelector('#order-deskripsi').value
-    const alamat = document.querySelector('#alamat').value
+    <footer>
+
+    </footer>
+
+
+
+
+
+
+
+    <script src="js/order.js"></script>
+    <script src="bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
     
-    let orderan = ''
-    orderArray.forEach(function(item){
-        orderan += `${item.nama} (${item.jumlah} Item).\n`
-    })
-    let total = 0 // varibal menampung hasil hitung total bayar
-    orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
-        total += parseFloat(item.harga) * parseFloat(item.jumlah) // mengalikan harga dari item 
-    });
+    <script>
+        VANTA.BIRDS({
+        el: "#animasi",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        scale: 1.00,
+        scaleMobile: 1.00, 
+        backgroundAlpha: 0.00,
+        wingSpan: 40.00,
+        speedLimit: 10.00
+        })
+    </script>
 
-    let dataWA = `Order Baru !! - ${new Date()}\n\n${nama} - ${telp}\n\n${orderan}\nTotal : Rp. ${total}\n\nDeskripsi : ${deskripsi}\n\nAlamat :\n${alamat}
-    `
-    const encode = encodeURI(dataWA)
-    const linkWA = `https://wa.me/+622399078306?text=${encode}`
-    console.info(linkWA)
-    console.info(dataWA)
-    location.href = linkWA
-}
+    <script>
+        let orderArray = []
+
+        window.addEventListener('load', function(e) {
+            daftarOrder()
+        })
+
+        window.addEventListener('click', function(e){
+            if (e.target.matches('.tambah')) {
+                tambahOrder(e.target)
+                daftarOrder()
+                hitungTotal()
+            }
+            else if (e.target.matches('.fa-trash')) {
+                hapusItem(e.target)
+                daftarOrder()
+                hitungTotal()
+            }
+            else if (e.target.matches('.order-button')){
+                cekIsi()
+            }
+        })
+
+        window.addEventListener('change', function(e){
+            if (e.target.matches('.jumlah-item')){
+                gantiNilai(e.target)
+                jikaKosong(e.target)
+            }
+        })
+
+        window.addEventListener('keyup', function(e){
+            if(e.target.matches('.order-input')){
+                jikaKosong(e.target)
+            }
+            else if (e.target.matches('.jumlah-item')){
+                gantiNilai(e.target)
+                jikaKosong(e.target)
+                console.info('key up')
+            }
+        })
+    </script>
+</body>
+</html>
