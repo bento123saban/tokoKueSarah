@@ -125,10 +125,11 @@ function daftarOrder() // menyusun daftar item yang telah diorder
 
 function hitungTotal() // menghitung total bayar
 {
+    console.log('hitung')
     let total = 0 // varibal menampung hasil hitung total bayar
     orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
         total += parseFloat(item.harga) * parseFloat(item.jumlah) // mengalikan harga dari item 
-    });
+    })
     document.querySelector('.total-harga').innerHTML = 'Total Harga : Rp. ' + total // mengembalikan/menampilkan hasil hitung pada element total harga
 }
 
@@ -137,12 +138,9 @@ function hitungTotal() // menghitung total bayar
 
 function tambahOrder(element) {
     let ID = element.getAttribute('data-id') //mengambil ID item
-    console.log(ID)
-    console.log(orderArray)
     let parameter = 0 //parameter ; jika 0 beluk ditambahkan, jika 1 sudah ditambahkan
     orderArray.forEach( index => { //perulangan untuk mengecek item sudah ditambahkan atau belum
         if (index.ID == ID) {
-            console.log(index.ID)
             parameter = 1 // jika sudah ditambahakan parameter menjadi (1)
             return ''// hentikan proses
         }
@@ -165,9 +163,7 @@ function hapusItem(element){
 
 
 function gantiNilai(element){
-    console.log(element)
     const ID = element.parentElement.getAttribute('data-id')
-    console.log(ID)
     let i = orderArray.findIndex(index => index.ID == ID)
     let value = parseFloat(element.value)
     if (value > 0) {
@@ -176,13 +172,12 @@ function gantiNilai(element){
         element.value = ''
         orderArray[i].jumlah = 0
     }
-    console.info(orderArray[i].jumlah)
     hitungTotal()
 }
 
 function jikaKosong(element) {
     if (element.value == '') {
-        element.style.borderColor = 'red'
+        element.style.borderColor = '#123'
     } else {
         element.style.borderColor = ''
     }
@@ -193,7 +188,7 @@ function cekIsi() {
     document.querySelectorAll('.order-input').forEach(function (item) {
         if (item.value == '') {
             parameter = 1
-            item.style.borderColor = 'red'
+            item.style.borderColor = '#123'
         }
     })
     if (orderArray.length == 0) {
@@ -215,7 +210,7 @@ function order(){
     
     let orderan = ''
     orderArray.forEach(function(item){
-        orderan += `${item.nama} (${item.jumlah} Porsi).\n`
+        orderan += `${item.nama} (${item.jumlah} Item).\n`
     })
     let total = 0 // varibal menampung hasil hitung total bayar
     orderArray.map(item => { // perulangan untuk setiap item dalam daftar order
