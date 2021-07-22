@@ -220,7 +220,7 @@ function order(){
     let dataWA = `Order Baru !! - ${new Date()}\n\n${nama} - ${telp}\n\n${orderan}\nTotal : Rp. ${total}\n\nDeskripsi : ${deskripsi}\n\nAlamat :\n${alamat}
     `
     const encode = encodeURI(dataWA)
-    const linkWA = `https://wa.me/+6281354741823?text=${encode}`
+    const linkWA = `https://wa.me/+622399078306?text=${encode}`
     console.info(linkWA)
     console.info(dataWA)
     location.href = linkWA
