@@ -50,7 +50,7 @@ p, ::placeholder, label, input, textarea {
 }
 
 body {
-    padding: 0 10px;
+    padding: 0;
     margin: 0;
 }
 
@@ -289,19 +289,51 @@ nav.navbar{
 }
 .card .box2 .box3 span {
     padding: 6px 15px;
-    background: #FF0038;
+    background: #d33059;
     color: white;
     font-weight: bold;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 .card .box2 .box3 span:active {
     background-color: pink;
     box-shadow: 0 0 4px rgba(0, 0, 0, .5);
 }
 
+#tambah-sukses {
+    position: fixed;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(400px, 70%);
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: #d33059;
+    color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .5);
+    transition: all 1s ease-in;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -10;
+    opacity: 0;
+}
+#tambah-sukses p {
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+#tambah-sukses.add {
+    display: block;
+    opacity: 1;
+    top: 95%;
+    z-index: 10;
+}
 
 
 
@@ -404,7 +436,11 @@ nav.navbar{
 	font-size: 1rem;
 	color: #fa5b7d;
 }
-
+.order-container i.i {
+    font-size: 10px;
+    margin: 0;
+    padding: 5px 0 0;
+}
 
 .order-container .total-harga {
 	margin: 0 0 5px;
@@ -484,34 +520,34 @@ nav.navbar{
     margin: 0;
     width: 100%;
     color: white;
-    background: linear-gradient(45deg, #123, #234);
+    background: #234;
   }
-.kontak h3 {
+  .kontak h3 {
     text-align: center;
-}
-.kontak .kontak-box {
+  }
+  .kontak .kontak-box {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 30px 0 5px;
-}
-.kontak .kontak-box .kontak-konten {
+  }
+  .kontak .kontak-box .kontak-konten {
     margin: 10px;
     padding: 0;
-}
-.kontak .kontak-box .kontak-konten a{
+  }
+  .kontak .kontak-box .kontak-konten a{
     display: flex;
     align-items: center;
     padding: 0;
     font-size: 1rem;
-}
-.kontak .kontak-box .kontak-konten a img{
+  }
+  .kontak .kontak-box .kontak-konten a img{
     height: 40px;
     width: 40px;
     z-index: 1;
     margin: 0;
-}
-.kontak .kontak-box .kontak-konten a p{
+  }
+  .kontak .kontak-box .kontak-konten a p{
     margin: auto 0;
     padding: 2px 15px;
     background-color: yellow;
@@ -521,28 +557,28 @@ nav.navbar{
     box-shadow: 0 0 10px rgba(0,0,0,.4);
     min-width: 200px;
     text-align: center;
-}
-.kontak .kontak-box .kontak-konten a p.wa{
+  }
+  .kontak .kontak-box .kontak-konten a p.wa{
     background-image: linear-gradient(45deg,#25D366, #075E54);
-}
-.kontak .kontak-box .kontak-konten a p.ig{
+  }
+  .kontak .kontak-box .kontak-konten a p.ig{
     background-image: linear-gradient(to top right, #FCCC63, #FBAD50, #E95950, #BC2A8d, #8A3Ab9);
-}
-.kontak .kontak-box .kontak-konten a p.telp{
+  }
+  .kontak .kontak-box .kontak-konten a p.telp{
     background-image: linear-gradient(to top right, #4267B2, #3B5998);
-}
-.kontak .lokasi-konten {
+  }
+  .kontak .lokasi-konten {
     display: flex;
     justify-content: center;
-}
-.kontak .lokasi-konten a{
+  }
+  .kontak .lokasi-konten a{
     display: flex;
     align-items: center;
     padding: 0;
     margin: 15px auto;
     font-size: 1rem;
-}
-.kontak .lokasi-konten a i{
+  }
+  .kontak .lokasi-konten a i{
     font-size: 20px;
     z-index: 1;
     margin: 0;
@@ -554,11 +590,25 @@ nav.navbar{
     padding: 5px;
     border-radius: 6px;
     border: 2px solid white;
-}
-.kontak .lokasi-konten a p{
+  }
+  .kontak .lokasi-konten a p{
     margin: auto 0;
     padding: 2px 15px;
     color: white;
     border-bottom: 2px solid white;
     font-size: 1rem;
-} 
+  }
+  
+  
+  .footer-konten {
+    border-top: 2px solid white;
+    margin: 30px auto;
+    padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-konten .box{
+    width: min(500px, 50%);
+    margin: 0 20px;
+    font-size: 1rem;
+  }
