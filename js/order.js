@@ -141,6 +141,7 @@ function tambahOrder(element) {
     let parameter = 0 //parameter ; jika 0 beluk ditambahkan, jika 1 sudah ditambahkan
     orderArray.forEach( index => { //perulangan untuk mengecek item sudah ditambahkan atau belum
         if (index.ID == ID) {
+            // index.jumlah = parseFloat(index.jumlah) + 1
             parameter = 1 // jika sudah ditambahakan parameter menjadi (1)
             return ''// hentikan proses
         }
@@ -148,12 +149,43 @@ function tambahOrder(element) {
     if(parameter == 0) //jika item belum ditambahkan (param = 0), ambil data item dara variabel simpan data (buketData atau ritelData)
     {
         const i = data.findIndex( item => item.ID == ID)
-
         let  item = data[i] // variabel Objek untuk menampung data dari item yang ditambhakan
         item.jumlah = 1;
         orderArray.push(item)
     }
+    tambahSukses()
 }
+
+var suksesInterval = ''
+function tambahSukses() {
+    let hitung = 6
+    const suksesTambah = document.querySelector("#tambah-sukses")
+
+    if (suksesTambah.classList.contains('add')) {
+        clearInterval(suksesInterval)
+        suksesTambah.classList.remove('add')
+        suksesTambah.classList.add('add')
+        suksesInterval = setInterval(() => {
+            hit()
+        }, 1000);
+    } else {
+        suksesTambah.classList.add('add')
+        suksesInterval = setInterval(() => {
+            hit()
+        }, 1000);
+    }
+    
+    function hit() {
+        hitung--
+        if (hitung == 0) {
+            clearInterval(suksesInterval)
+            suksesTambah.classList.remove('add')
+        }
+        console.log('hitung', hitung)
+    }
+}
+
+
 
 function hapusItem(element){
     const ID = element.parentElement.getAttribute('data-id')
@@ -225,3 +257,5 @@ function order(){
     console.info(dataWA)
     location.href = linkWA
 }
+
+
