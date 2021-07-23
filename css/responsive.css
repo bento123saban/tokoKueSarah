@@ -3,8 +3,26 @@
     body {
         padding: 0;
     }
+
+    .order {
+        padding: 70px 10px 40px;
+    }
+
+    .order-container .order-pilih .order-item input{
+        width: 50px;
+    }
+
     .kontak-box {
         flex-direction: column;
+    }
+    .lokasi-konten a.lokasi-link p {
+        font-size: 12px;
+    }
+    .footer-konten {
+        flex-direction: column;
+    }
+    .footer-konten .box{
+        width: min(500px, 100%);
     }
 
 }
